@@ -8,9 +8,30 @@
 
   <div class="form-group">
     <label for="auth">Burger:</label>
-    <input type="text" id="auth" name="author">
+    <input type="text" id="burger" name="author">
   </div>
 
 
-  <button type="submit">Add Quote</button>
+  <button class="button">Add Burger</button>
 </form>
+
+
+
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+   <li>{{this.burger_name}}</li>
+  {{/each}}
+</ul>
+
+{{!-- <ul>
+  {{#each burgers}}
+  {{#unless devoured}}
+   <li>{{this.burger_name}}</li>
+  {{/each}}
+</ul> --}}
+
+
+{{!-- put request
+
+when devoured button is pushed, value it updated from 0 to 1 --}}
