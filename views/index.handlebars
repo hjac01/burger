@@ -1,37 +1,42 @@
-<h1>Eat-Da-Burger</h1>
 
-<p>Enter a burger you want to eat, click 'submit'.</p>
+<h1>eat da burger</h1>
 
-<h2>Add a Burger</h2>
+<ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{ burgers/burger_name-block devoured=false }}
+    {{/unless}}
+  {{/each}}
+</ul>
 
+<h2>Devoured Burgers</h2>
+
+<ul>
+  {{#each burgers}}
+    {{#if devoured}}
+      {{ burgers/burger_name-block devoured=true }}
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a burger</h2>
 <form class="create-form">
 
   <div class="form-group">
-    <label for="auth">Burger:</label>
+    <label for="ca">Burger Name</label>
     <input type="text" id="burger" name="author">
   </div>
 
+  <div class="form-group">
+    <label for="devoured">Devoured</label><br>
+    <input type="radio" name="devoured" value="1" checked> Devoured<br>
+    <input type="radio" name="devoured" value="0"> Not Devoured
+  </div>
 
-  <button class="button">Add Burger</button>
+  <button type="submit">Add Burger</button>
 </form>
 
 
 
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-   <li>{{this.burger_name}}</li>
-  {{/each}}
-</ul>
-
-{{!-- <ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-   <li>{{this.burger_name}}</li>
-  {{/each}}
-</ul> --}}
 
 
-{{!-- put request
-
-when devoured button is pushed, value it updated from 0 to 1 --}}
